@@ -1,0 +1,93 @@
+.view.Horaires {
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 100px;
+  background: $primary-color;
+
+  .banner {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.horaires-content {
+  width: 90vw;
+  margin: 20px auto;
+  padding: 20px;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: $card-shadow;
+}
+
+.horaires-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.jour {
+  padding: 20px;
+  background: $hover-bg;
+  border-radius: 8px;
+  text-align: center;
+
+  h4 {
+    color: $primary-color;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  p {
+    color: $text-color;
+    font-size: 1.1rem;
+    margin: 5px 0;
+  }
+}
+
+.location {
+  width: 90vw;
+  margin: 30px auto;
+  padding: 20px;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: $card-shadow;
+  text-align: center;
+
+  h3 {
+    color: $primary-color;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: $card-shadow;
+  }
+
+  p {
+    color: $text-color;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    font-weight: 500;
+
+    &::before {
+      content: '\f3c5'; // Icône de localisation Font Awesome
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: 10px;
+      color: $secondary-color;
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 70vw;
+    
+    iframe {
+      height: 400px;
+    }
+  }
+} 

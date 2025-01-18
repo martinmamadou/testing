@@ -1,0 +1,11 @@
+{
+  "name": "restaurant-site",
+  "version": "1.0.0",
+  "description": "Restaurant website with Sass",
+  "scripts": {
+    "sass": "sass --watch assets/styles/scss:assets/styles/css"
+  },
+  "devDependencies": {
+    "sass": "^1.69.7"
+  }
+}

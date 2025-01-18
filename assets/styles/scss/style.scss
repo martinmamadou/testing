@@ -1,0 +1,71 @@
+// Imports
+@import 'variables';
+@import 'reset';
+@import 'animations';
+@import '_nav';
+@import 'home';
+@import 'menu';
+@import 'horaires';
+
+// Styles de base
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+// Styles communs
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+// Logo
+.logo {
+  z-index: 90;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: $white;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 2.5rem;
+      color: $secondary-color;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      
+      i {
+        transform: rotate(-10deg);
+      }
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 40px;
+    
+    a i {
+      font-size: 3rem;
+    }
+  }
+}
+

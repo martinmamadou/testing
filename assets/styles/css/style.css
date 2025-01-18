@@ -1,0 +1,543 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.banner {
+  width: calc(100% + 40px);
+  height: 150px;
+  background: url(/assets/img/flat-lay-unhealthy-delicious-food.jpg) no-repeat center/cover fixed;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 84;
+  margin: 0 -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulseMenu {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes subtleZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@keyframes myAnim2 {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+nav {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 15px 0;
+  font-size: 1.1rem;
+}
+nav li {
+  position: relative;
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+nav li:hover {
+  background: rgba(32, 178, 170, 0.1);
+}
+nav li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: lightseagreen;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+nav li:hover::before, nav li.active::before {
+  width: 30px;
+}
+nav li.active {
+  transform: scale(1.05);
+  background: rgba(32, 178, 170, 0.15);
+}
+nav li.active a {
+  font-size: 1rem;
+  color: lightseagreen;
+  font-weight: 700;
+}
+nav li.active a i {
+  font-size: 1.5rem;
+  transform: translateY(-2px);
+}
+nav li:active {
+  transform: scale(0.95);
+}
+nav a {
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+nav a i {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+nav a span {
+  font-size: 0.9rem;
+}
+nav a.men {
+  color: lightseagreen;
+  font-weight: 600;
+  position: relative;
+}
+nav a.men i {
+  font-size: 1.4rem;
+  color: lightseagreen;
+  filter: drop-shadow(0 0 8px rgba(32, 178, 170, 0.3));
+}
+nav a.men::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: lightseagreen;
+  border-radius: 50%;
+  animation: pulseMenu 2s infinite;
+}
+
+@media screen and (min-width: 1000px) {
+  nav {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    left: auto;
+    right: 20px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  }
+  nav ul {
+    flex-direction: column;
+    height: 80%;
+    padding: 10px 10px;
+  }
+  nav li {
+    margin: 15px 0;
+  }
+  nav li::before {
+    left: 0;
+    bottom: 50%;
+    width: 3px;
+    height: 0;
+    transform: none;
+  }
+  nav li:hover::before, nav li.active::before {
+    width: 3px;
+    height: 30px;
+  }
+  nav a.men::before {
+    top: 50%;
+    left: -8px;
+    transform: translateY(-50%);
+  }
+}
+.phone-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.phone-link i {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+.homeView {
+  height: 100vh;
+  background: url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
+  position: relative;
+  animation: subtleZoom 40s ease-in-out infinite alternate;
+  z-index: 1;
+}
+.homeView-text {
+  position: relative;
+  z-index: 1;
+  padding: 200px 20px;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+}
+.homeView-text h1 {
+  margin: 20px 0;
+  font-size: 4rem;
+  font-weight: 600;
+}
+.homeView-text p {
+  margin: 40px 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+  padding: 10px 20px;
+  background: lightseagreen;
+  color: white;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+}
+
+.menu, .view {
+  background: lightseagreen;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 80;
+}
+.menu.show, .menu.active, .view.show, .view.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-content {
+  height: 100%;
+  overflow-y: auto;
+  padding: 0 20px 100px 20px;
+  position: relative;
+}
+
+.menu-items {
+  padding: 20px 0;
+  margin-bottom: 80px;
+}
+
+.menu-item {
+  display: none;
+}
+.menu-item.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.menu-item-text {
+  padding: 20px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+  margin: 20px;
+  background: white;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: calc(100% - 40px);
+  max-width: 600px;
+  animation: myAnim2 0.5s ease 0s 1 normal forwards;
+}
+.menu-item-text h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.menu-item-text p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: grey;
+}
+
+.menu-item-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-transform: capitalize;
+  color: lightcoral;
+  font-weight: 600;
+  margin: 20px 0 0;
+  width: 100%;
+}
+
+.menu-btn-container {
+  position: sticky;
+  top: 150px;
+  background: lightseagreen;
+  padding: 20px 0;
+  z-index: 85;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 -20px;
+  width: calc(100% + 40px);
+}
+
+.menu-btn {
+  padding: 10px 20px;
+  background: none;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid lightcoral;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.menu-btn i {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+.menu-btn span {
+  font-size: 0.9rem;
+}
+.menu-btn:hover i {
+  transform: scale(1.1);
+}
+.menu-btn.active {
+  background: lightcoral;
+  color: white;
+}
+.menu-btn.active i {
+  animation: bounce 0.5s ease;
+}
+
+.view.Horaires {
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 100px;
+  background: lightseagreen;
+}
+.view.Horaires .banner {
+  position: sticky;
+  top: 0;
+}
+
+.horaires-content {
+  width: 90vw;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+}
+
+.horaires-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.jour {
+  padding: 20px;
+  background: rgba(32, 178, 170, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+.jour h4 {
+  color: lightseagreen;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.jour p {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.location {
+  width: 90vw;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+  text-align: center;
+}
+.location h3 {
+  color: lightseagreen;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.location iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+}
+.location p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  font-weight: 500;
+}
+.location p::before {
+  content: "\f3c5";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  color: lightcoral;
+}
+@media screen and (min-width: 1000px) {
+  .location {
+    width: 70vw;
+  }
+  .location iframe {
+    height: 400px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.logo {
+  z-index: 90;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.logo a {
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+.logo a i {
+  font-size: 2.5rem;
+  color: lightcoral;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+.logo a:hover {
+  transform: scale(1.1);
+}
+.logo a:hover i {
+  transform: rotate(-10deg);
+}
+@media screen and (min-width: 1000px) {
+  .logo {
+    left: 40px;
+  }
+  .logo a i {
+    font-size: 3rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant</title>
+  <link rel="stylesheet" href="./assets/styles/css/style.css">
+  <script src="./main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="./index.html">
+        <i class="fas fa-kitchen-set"></i>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li class="active">
+          <a href="#">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="men">
+            <i class="fas fa-utensils"></i>
+            <span>Menu</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="far fa-clock"></i>
+            <span>Horaires</span>
+          </a>
+        </li>
+        <li>
+          <button class="phone-link" onclick="makePhoneCall(event)">
+            <i class="fas fa-phone"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <a href="tel:+33612345678" class="phone-link">
+      <i class="fas fa-phone"></i>
+      <span>+33 6 12 34 56 78</span>
+    </a>
+    <div class="view Home active">
+      <div class="homeView">
+        <span class="overlay"></span>
+        <div class="homeView-text">
+          <h1>Welcome to Our Restaurant</h1>
+          <p>Experience the best food in town</p>
+          <a class="btn btn-primary" href="#">Decouvrir nos offres</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="view Horaires">
+      <div class="banner">
+        <h2>Nos Horaires</h2>
+      </div>
+      <div class="horaires-content">
+        <h3>Heures d'ouverture</h3>
+        <div class="horaires-grid">
+          <div class="jour">
+            <h4>Lundi - Vendredi</h4>
+            <p>11h30 - 14h30</p>
+            <p>18h30 - 22h30</p>
+          </div>
+          <div class="jour">
+            <h4>Samedi</h4>
+            <p>11h30 - 23h00</p>
+          </div>
+          <div class="jour">
+            <h4>Dimanche</h4>
+            <p>11h30 - 22h30</p>
+          </div>
+        </div>
+      </div>
+      <div class="location">
+        <h3>Nous trouver</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d22273.49284966756!2d4.9610752!3d45.747404800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1737117473475!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>123 Rue de la Paix, 75000 Paris, France</p>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div class="menu-content">
+        <div class="banner">
+          <h2>Menu</h2>
+        </div>
+        
+        <div class="menu-btn-container">
+          <button class="menu-btn" data-target="Burger">
+            <i class="fas fa-hamburger"></i>
+            <span>Burger</span>
+          </button>
+          <button class="menu-btn" data-target="Pizza">
+            <i class="fas fa-pizza-slice"></i>
+            <span>Pizza</span>
+          </button>
+          <button class="menu-btn" data-target="Salade">
+            <i class="fas fa-leaf"></i>
+            <span>Salade</span>
+          </button>
+          <button class="menu-btn" data-target="Dessert">
+            <i class="fas fa-ice-cream"></i>
+            <span>Dessert</span>
+          </button>
+          
+        </div>
+        <hr>
+        <div class="menu-items">
+          <div class="menu-item Burger">
+            <div class="menu-item-text">
+              <h3>Cheeseburger</h3>
+              <p>steak, fromage, salade, tomate, oignon, ketchup, mayonnaise</p>
+              <div class="menu-item-price">
+               <p>seul : 10€</p>
+               <p>menu : 15€</p>
+              </div>
+            </div>
+            
+            <div class="menu-item-text">
+              <h3>Double Cheese</h3>
+              <p>double steak, double fromage, salade, tomate, oignon rouge, sauce spéciale</p>
+              <div class="menu-item-price">
+               <p>seul : 13€</p>
+               <p>menu : 18€</p>
+              </div>
+            </div>
+
+            <div class="menu-item-text">
+              <h3>Veggie Burger</h3>
+              <p>steak végétal, fromage, avocat, roquette, tomate séchée, sauce végane</p>
+              <div class="menu-item-price">
+                <p>seul : 12€</p>
+                <p>menu : 17€</p>
+              </div>
+            </div>
+
+            <div class="menu-item-text">
+              <h3>Bacon Deluxe</h3>
+              <p>steak haché, bacon croustillant, cheddar fondu, oignons caramélisés, sauce barbecue</p>
+              <div class="menu-item-price">
+                <p>seul : 14€</p>
+                <p>menu : 19€</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item Pizza">
+            <div class="menu-item-text">
+              <h3>Margherita</h3>
+              <p>sauce tomate, mozzarella di bufala, basilic frais, huile d'olive</p>
+              <div class="menu-item-price">
+                <p>seul : 11€</p>
+                <p>menu : 16€</p>
+              </div>
+            </div>
+            
+            <div class="menu-item-text">
+              <h3>4 Fromages</h3>
+              <p>mozzarella, gorgonzola, parmesan, chèvre, crème fraîche</p>
+              <div class="menu-item-price">
+                <p>seul : 13€</p>
+                <p>menu : 18€</p>
+              </div>
+            </div>
+
+            <div class="menu-item-text">
+              <h3>Calzone</h3>
+              <p>jambon, champignons, œuf, mozzarella, sauce tomate</p>
+              <div class="menu-item-price">
+                <p>seul : 12€</p>
+                <p>menu : 17€</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item Salade">
+            <div class="menu-item-text">
+              <h3>César</h3>
+              <p>poulet grillé, parmesan, croûtons, salade romaine, sauce césar</p>
+              <div class="menu-item-price">
+                <p>seul : 9€</p>
+                <p>menu : 14€</p>
+              </div>
+            </div>
+            
+            <div class="menu-item-text">
+              <h3>Chèvre Chaud</h3>
+              <p>toasts de chèvre, miel, noix, mesclun, tomates cerises</p>
+              <div class="menu-item-price">
+                <p>seul : 10€</p>
+                <p>menu : 15€</p>
+              </div>
+            </div>
+
+            <div class="menu-item-text">
+              <h3>Bowl Healthy</h3>
+              <p>quinoa, avocat, saumon fumé, mangue, graines de chia</p>
+              <div class="menu-item-price">
+                <p>seul : 12€</p>
+                <p>menu : 17€</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item Dessert">
+            <div class="menu-item-text">
+              <h3>Tiramisu</h3>
+              <p>mascarpone, café, cacao, biscuits, amaretto</p>
+              <div class="menu-item-price">
+                <p>seul : 7€</p>
+                <p>menu : 12€</p>
+              </div>
+            </div>
+            
+            <div class="menu-item-text">
+              <h3>Fondant Chocolat</h3>
+              <p>chocolat noir, glace vanille, coulis caramel</p>
+              <div class="menu-item-price">
+                <p>seul : 8€</p>
+                <p>menu : 13€</p>
+              </div>
+            </div>
+
+            <div class="menu-item-text">
+              <h3>Crème Brûlée</h3>
+              <p>vanille bourbon, sucre caramélisé</p>
+              <div class="menu-item-price">
+                <p>seul : 7€</p>
+                <p>menu : 12€</p>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    
+    <div class="view Contact">
+      <div class="banner">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-content">
+        <h3>Nous Contacter</h3>
+        <form class="contact-form">
+          <input type="text" placeholder="Nom">
+          <input type="email" placeholder="Email">
+          <textarea placeholder="Message"></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
