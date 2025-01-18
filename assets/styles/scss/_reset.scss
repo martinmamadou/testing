@@ -38,15 +38,30 @@ img {
 }
 
 .banner {
-  width: calc(100% + 40px);
+  width: 100%;
   height: $banner-height;
   background: url(/assets/img/flat-lay-unhealthy-delicious-food.jpg) no-repeat center/cover fixed;
   color: $white;
   position: sticky;
   top: 0;
   z-index: 84;
-  margin: 0 -20px;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.view {
+  overflow-x: hidden;
+  
+  & > div {
+    max-width: 100vw;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+}
+
+.menu-content {
+  max-width: 100vw;
+  overflow-x: hidden;
 }

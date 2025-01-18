@@ -4,6 +4,9 @@
   background: url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // Pour espacer le contenu et l'espace nav
 
   // Conteneur du texte d'accueil
   &-text {
@@ -27,6 +30,16 @@
       margin: 40px 0;
       font-size: 1.5rem;
       font-weight: 400;
+    }
+  }
+
+  // Espace réservé pour la navigation
+  &-nav-space {
+    height: 65px; // Hauteur correspondant à la nav mobile
+    width: 100%;
+    
+    @media screen and (min-width: $desktop) {
+      display: none; // Cache l'espace sur desktop car nav sur le côté
     }
   }
 }
