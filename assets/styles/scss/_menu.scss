@@ -24,8 +24,25 @@
 .menu-content {
   height: 100%;
   overflow-y: auto;
-  padding: 0 20px 100px 20px; // Padding en bas pour éviter la nav
+  padding: 0 0 100px 0; // Supprimé le padding horizontal, gardé celui du bas
   position: relative;
+
+  // Style spécifique de la bannière dans le menu
+  .banner {
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  // Ajustement du conteneur des boutons
+  .menu-btn-container {
+    padding: 20px;
+  }
+
+  // Ajustement du conteneur des items
+  .menu-items {
+    padding: 20px;
+  }
 }
 
 // Conteneur des éléments du menu
