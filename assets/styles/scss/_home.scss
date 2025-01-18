@@ -1,10 +1,11 @@
+// Section d'accueil avec image de fond
 .homeView {
   height: 100vh;
   background: url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
   position: relative;
-  animation: subtleZoom 40s ease-in-out infinite alternate;
   z-index: 1;
 
+  // Conteneur du texte d'accueil
   &-text {
     position: relative;
     z-index: 1;
@@ -14,12 +15,14 @@
     font-weight: 600;
     text-align: left;
 
+    // Titre principal
     h1 {
       margin: 20px 0;
       font-size: 4rem;
       font-weight: 600;
     }
 
+    // Sous-titre
     p {
       margin: 40px 0;
       font-size: 1.5rem;
@@ -28,6 +31,7 @@
   }
 }
 
+// Overlay sombre sur l'image de fond
 .overlay {
   position: absolute;
   top: 0;
@@ -37,12 +41,162 @@
   background: $overlay-bg;
 }
 
+// Bouton d'action principal
 .btn {
-  padding: 10px 20px;
+  padding: 20px 40px;
   background: $primary-color;
   color: $white;
+  border: none;
   border-radius: 5px;
   position: absolute;
   bottom: 100px;
   left: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+// Carrousel des offres
+.offers-carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+// Conteneur des slides du carrousel
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+// Slides individuelles
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.prev {
+    transform: translateX(-100%);
+  }
+}
+
+// Style des offres dans le carrousel
+.offer {
+  background: $white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  // Titre de l'offre
+  h3 {
+    font-size: 2rem;
+    color: $primary-color;
+  }
+
+  // Description de l'offre
+  p {
+    font-size: 1.2rem;
+    color: $text-color;
+  }
+
+  // Prix de l'offre
+  .price {
+    font-size: 2.5rem;
+    color: $secondary-color;
+    font-weight: bold;
+  }
+
+  // Détails supplémentaires
+  .details {
+    font-size: 1rem;
+    color: grey;
+  }
+}
+
+// Boutons de navigation du carrousel
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: $secondary-color;
+  color: $white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  // Positionnement des boutons
+  &.prev {
+    left: 20px;
+  }
+
+  &.next {
+    right: 20px;
+  }
+
+  // Animation au survol
+  &:hover {
+    background: darken($secondary-color, 10%);
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+// Points de navigation du carrousel
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+
+  // Points individuels
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    // État actif
+    &.active {
+      background: $white;
+      transform: scale(1.2);
+    }
+  }
 } 

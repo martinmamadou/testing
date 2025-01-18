@@ -1,23 +1,22 @@
-// Couleurs
+// Couleurs principales
 $primary-color: lightseagreen;
 $secondary-color: lightcoral;
 $text-color: #333;
 $white: white;
 $black: black;
 
-// Transparences
+// Fonds semi-transparents
 $glass-bg: rgba(255, 255, 255, 0.95);
 $overlay-bg: rgba(0, 0, 0, 0.5);
 $hover-bg: rgba(32, 178, 170, 0.1);
-$active-bg: rgba(32, 178, 170, 0.15);
 
-// Ombres
+// Effets d'ombre
 $card-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
 $nav-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
 
-// Dimensions
+// Dimensions standards
 $nav-height: 100vh;
 $banner-height: 150px;
 
-// Breakpoints
+// Points de rupture responsive
 $desktop: 1000px; 

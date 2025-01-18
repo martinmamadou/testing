@@ -20,11 +20,11 @@
   }
 }
 
-// Conteneur principal du contenu avec défilement
+// Conteneur principal avec défilement
 .menu-content {
   height: 100%;
   overflow-y: auto;
-  padding: 0 20px 100px 20px; // Padding bottom pour éviter que la nav cache du contenu
+  padding: 0 20px 100px 20px; // Padding en bas pour éviter la nav
   position: relative;
 }
 
@@ -34,7 +34,7 @@
   margin-bottom: 80px;
 }
 
-// Style de base pour chaque catégorie du menu
+// Conteneur de chaque catégorie de menu
 .menu-item {
   display: none; // Caché par défaut
 
@@ -44,10 +44,20 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 60px;
+
+    // Mise en page en grille pour desktop
+    @media screen and (min-width: $desktop) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
   }
 }
 
-// Style pour chaque élément du menu (plat)
+// Style de chaque plat dans le menu
 .menu-item-text {
   padding: 20px;
   box-shadow: $card-shadow;
@@ -61,12 +71,16 @@
   align-items: flex-start;
   width: calc(100% - 40px);
   max-width: 600px;
-  animation: myAnim2 0.5s ease 0s 1 normal forwards; // Animation d'entrée
+  animation: myAnim2 0.5s ease 0s 1 normal forwards;
+
+  // Titre du plat
   h3 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 10px;
   }
+
+  // Description des ingrédients
   p {
     font-size: 1.2rem;
     font-weight: 400;
@@ -75,7 +89,7 @@
   }
 }
 
-// Style pour la section prix de chaque plat
+// Section des prix
 .menu-item-price {
   display: flex;
   justify-content: space-between;
@@ -86,26 +100,39 @@
   font-weight: 600;
   margin: 20px 0 0;
   width: 100%;
+
+  // Prix individuels
+  p {
+    color: $secondary-color;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
 }
 
-// Barre de navigation des catégories du menu
+// Barre de navigation des catégories
 .menu-btn-container {
   position: sticky;
   top: $banner-height;
   background: $primary-color;
   padding: 20px 0;
-  z-index: 85; // Au-dessus du contenu pour rester visible
+  z-index: 85;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0 -20px;
-  width: calc(100% + 40px); // Compense les marges négatives
+  width: calc(100% + 40px);
+
+  @media screen and (min-width: $desktop) {
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+  }
 }
 
-// Style des boutons de catégories
+// Boutons de catégories
 .menu-btn {
   padding: 10px 20px;
-  background: none;
+  background: rgba(240, 128, 128, 0.146);
   color: $white;
   border-radius: 5px;
   border: 1px solid $secondary-color;
@@ -117,29 +144,40 @@
   align-items: center;
   gap: 5px;
 
-  // Style de l'icône
+  // Version desktop
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    padding: 8px 15px;
+    gap: 10px;
+    
+    i {
+      margin: 0;
+    }
+  }
+
+  // Icône du bouton
   i {
     font-size: 1.3rem;
     margin-bottom: 2px;
   }
 
-  // Style du texte
+  // Texte du bouton
   span {
     font-size: 0.9rem;
   }
 
-  // Animation au survol de l'icône
+  // Animation au survol
   &:hover i {
     transform: scale(1.1);
   }
 
-  // Style et animation quand le bouton est actif
+  // État actif du bouton
   &.active {
     background: $secondary-color;
     color: $white;
 
     i {
-      animation: bounce 0.5s ease; // Animation de rebond pour l'icône
+      animation: bounce 0.5s ease;
     }
   }
 } 

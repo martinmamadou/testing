@@ -55,7 +55,43 @@
         <div class="homeView-text">
           <h1>Welcome to Our Restaurant</h1>
           <p>Experience the best food in town</p>
-          <a class="btn btn-primary" href="#">Decouvrir nos offres</a>
+          <button class="btn btn-primary" onclick="openOffers()">Découvrir nos offres</button>
+        </div>
+        <!-- Carrousel des offres -->
+        <div class="offers-carousel">
+          <div class="carousel-container">
+            <div class="carousel-slide">
+              <div class="offer">
+                <h3>Offre Midi</h3>
+                <p>Entrée + Plat + Dessert</p>
+                <span class="price">15.90€</span>
+                <p class="details">Du lundi au vendredi, de 11h30 à 14h30</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="offer">
+                <h3>Menu Duo</h3>
+                <p>2 Burgers + 2 Boissons + 2 Desserts</p>
+                <span class="price">29.90€</span>
+                <p class="details">Valable tous les soirs</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="offer">
+                <h3>Brunch Weekend</h3>
+                <p>Buffet à volonté</p>
+                <span class="price">24.90€</span>
+                <p class="details">Samedi et dimanche, de 10h à 15h</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="carousel-dots"></div>
         </div>
       </div>
     </div>

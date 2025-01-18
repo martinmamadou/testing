@@ -1,19 +1,20 @@
-// Imports
-@import 'variables';
-@import 'reset';
-@import 'animations';
-@import '_nav';
-@import 'home';
-@import 'menu';
-@import 'horaires';
+// Importation des fichiers partiels
+@import 'variables';    // Variables globales
+@import 'reset';        // Reset CSS
+@import 'animations';   // Animations
+@import '_nav';        // Navigation
+@import 'home';        // Page d'accueil
+@import 'menu';        // Section menu
+@import 'horaires';    // Section horaires
 
-// Styles de base
+// Styles de base globaux
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+// Configuration du body
 body {
   margin: 0;
   padding: 0;
@@ -22,17 +23,18 @@ body {
   position: relative;
 }
 
-// Styles communs
+// Styles communs des liens
 a {
   text-decoration: none;
   color: black;
 }
 
+// Reset des listes
 li {
   list-style: none;
 }
 
-// Logo
+// Style du logo
 .logo {
   z-index: 90;
   position: absolute;
@@ -60,6 +62,7 @@ li {
     }
   }
 
+  // Version desktop du logo
   @media screen and (min-width: $desktop) {
     left: 40px;
     

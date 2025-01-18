@@ -1,12 +1,14 @@
+// Barre de navigation principale
 nav {
-  position: fixed;
-  z-index: 100;
+  position: fixed; // Fixe en bas sur mobile
+  z-index: 100;   // Toujours au-dessus des autres éléments
   bottom: 0;
   left: 0;
   width: 100vw;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); // Effet de flou derrière la nav
 
+  // Liste des éléments de navigation
   ul {
     display: flex;
     justify-content: space-around;
@@ -16,16 +18,19 @@ nav {
     font-size: 1.1rem;
   }
 
+  // Éléments de navigation individuels
   li {
     position: relative;
     padding: 8px 20px;
     border-radius: 25px;
     transition: all 0.3s ease;
 
+    // Effet hover
     &:hover {
       background: rgba(32, 178, 170, 0.1);
     }
 
+    // Barre d'indication sous les éléments
     &::before {
       content: '';
       position: absolute;
@@ -39,11 +44,13 @@ nav {
       border-radius: 2px;
     }
 
+    // Animation de la barre au hover et état actif
     &:hover::before,
     &.active::before {
       width: 30px;
     }
 
+    // Style de l'élément actif
     &.active {
       transform: scale(1.05);
       background: rgba(32, 178, 170, 0.15);
@@ -60,11 +67,13 @@ nav {
       }
     }
 
+    // Animation au clic
     &:active {
       transform: scale(0.95);
     }
   }
 
+  // Style des liens
   a {
     color: #333;
     font-weight: 500;
@@ -76,15 +85,19 @@ nav {
     align-items: center;
     gap: 5px;
 
+    // Style des icônes
     i {
+      color: $black;
       font-size: 1.3rem;
       margin-bottom: 2px;
     }
 
+    // Style du texte sous les icônes
     span {
       font-size: 0.9rem;
     }
 
+    // Style spécial pour le bouton menu
     &.men {
       color: lightseagreen;
       font-weight: 600;
@@ -96,6 +109,7 @@ nav {
         filter: drop-shadow(0 0 8px rgba(32, 178, 170, 0.3));
       }
 
+      // Point d'indication animé au-dessus
       &::before {
         content: '';
         position: absolute;
@@ -112,6 +126,7 @@ nav {
   }
 }
 
+// Version desktop de la navigation
 @media screen and (min-width: 1000px) {
   nav {
     bottom: auto;
@@ -126,6 +141,7 @@ nav {
     backdrop-filter: blur(12px);
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
 
+    // Réorganisation verticale des éléments
     ul {
       flex-direction: column;
       height: 80%;
@@ -135,6 +151,7 @@ nav {
     li {
       margin: 15px 0;
 
+      // Adaptation de la barre d'indication
       &::before {
         left: 0;
         bottom: 50%;
@@ -143,6 +160,7 @@ nav {
         transform: none;
       }
 
+      // Animation verticale de la barre
       &:hover::before,
       &.active::before {
         width: 3px;
@@ -150,6 +168,7 @@ nav {
       }
     }
 
+    // Ajustement du point d'indication du menu
     a.men {
       &::before {
         top: 50%;
@@ -160,6 +179,7 @@ nav {
   }
 }
 
+// Style du bouton d'appel
 .phone-link {
   background: none;
   border: none;
@@ -171,6 +191,7 @@ nav {
   align-items: center;
   
   i {
+    color: $secondary-color;
     font-size: 1.3rem;
     margin-bottom: 2px;
   }
