@@ -263,14 +263,24 @@ nav a.men::before {
   margin-bottom: 2px;
 }
 
+.view.Home {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 .homeView {
   height: 100vh;
-  background: url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 .homeView-text {
   position: relative;
@@ -280,6 +290,7 @@ nav a.men::before {
   font-size: 2rem;
   font-weight: 600;
   text-align: left;
+  overflow: hidden;
 }
 .homeView-text h1 {
   margin: 20px 0;
@@ -299,15 +310,6 @@ nav a.men::before {
   .homeView-nav-space {
     display: none;
   }
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .btn {

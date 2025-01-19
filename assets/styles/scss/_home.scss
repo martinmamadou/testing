@@ -1,12 +1,23 @@
 // Section d'accueil avec image de fond
+.view.Home {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 .homeView {
   height: 100vh;
-  background: url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; // Pour espacer le contenu et l'espace nav
+  justify-content: space-between;
+  overflow: hidden;
 
   // Conteneur du texte d'accueil
   &-text {
@@ -17,6 +28,7 @@
     font-size: 2rem;
     font-weight: 600;
     text-align: left;
+    overflow: hidden;
 
     // Titre principal
     h1 {
@@ -35,23 +47,13 @@
 
   // Espace réservé pour la navigation
   &-nav-space {
-    height: 65px; // Hauteur correspondant à la nav mobile
+    height: 65px;
     width: 100%;
     
     @media screen and (min-width: $desktop) {
-      display: none; // Cache l'espace sur desktop car nav sur le côté
+      display: none;
     }
   }
-}
-
-// Overlay sombre sur l'image de fond
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $overlay-bg;
 }
 
 // Bouton d'action principal
