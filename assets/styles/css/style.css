@@ -331,6 +331,13 @@ nav a.men::before {
   border-radius: 5px;
   font-size: 1.2rem;
   font-weight: 600;
+  width: 70%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 1000px) {
+  .btn {
+    width: 40%;
+  }
 }
 
 .offers-carousel {
