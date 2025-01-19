@@ -1,6 +1,7 @@
 // Section d'accueil avec image de fond
 .view.Home {
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   position: fixed;
   width: 100%;
@@ -10,14 +11,16 @@
 
 .homeView {
   height: 100vh;
+  height: 100dvh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-              url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover fixed;
+              url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover;
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  touch-action: none;
 
   // Conteneur du texte d'accueil
   &-text {
@@ -29,6 +32,7 @@
     font-weight: 600;
     text-align: left;
     overflow: hidden;
+    touch-action: none;
 
     // Titre principal
     h1 {
@@ -211,4 +215,12 @@
       transform: scale(1.2);
     }
   }
+}
+
+// Style global pour empêcher le scroll sur mobile quand Home est active
+body:has(.view.Home.active) {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 } 
