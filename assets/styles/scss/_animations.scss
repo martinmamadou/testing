@@ -52,6 +52,30 @@
   }
 }
 
+// Animation d'entrée pour la homeView
+@keyframes homeEnter {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Animation du texte
+@keyframes textSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .carousel-slide {
   will-change: transform, opacity;
 }
@@ -66,5 +90,56 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+// Animation d'entrée pour la navigation
+@keyframes navSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Version desktop
+@keyframes navSlideInDesktop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+// Animation des boutons du menu
+@keyframes menuButtonEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Animation améliorée pour les cartes du menu
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 } 

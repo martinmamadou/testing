@@ -3,10 +3,16 @@ nav {
   position: fixed; // Fixe en bas sur mobile
   z-index: 100;   // Toujours au-dessus des autres éléments
   bottom: 0;
-  left: 0;
-  width: 100vw;
+  margin-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  border-radius: 25px;
   background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px); // Effet de flou derrière la nav
+  opacity: 0; // Commence invisible
+  animation: navSlideIn 0.8s ease-out 1s forwards; // Animation après 1s
 
   // Liste des éléments de navigation
   ul {
@@ -124,6 +130,11 @@ nav {
         animation: pulseMenu 2s infinite;
       }
     }
+  }
+
+  // Version desktop
+  @media screen and (min-width: $desktop) {
+    animation: navSlideInDesktop 0.8s ease-out 1s forwards;
   }
 }
 

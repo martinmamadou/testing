@@ -21,6 +21,7 @@
   justify-content: space-between;
   overflow: hidden;
   touch-action: none;
+  animation: homeEnter 1s ease-out forwards;
 
   // Conteneur du texte d'accueil
   &-text {
@@ -38,23 +39,29 @@
     justify-content: center;
     flex: 1;
 
-    // Titre principal
+    // Titre principal avec animation
     h1 {
       margin: 20px 0;
       font-size: 3rem;
       font-weight: 600;
+      animation: textSlideUp 0.8s ease-out 0.3s forwards;
+      opacity: 0;
     }
 
-    // Sous-titre
+    // Sous-titre avec animation
     p {
       margin: 20px 0;
       font-size: 1.5rem;
       font-weight: 400;
+      animation: textSlideUp 0.8s ease-out 0.5s forwards;
+      opacity: 0;
     }
 
-    // Ajustement du bouton
+    // Bouton avec animation
     .btn {
       margin-top: 20px;
+      animation: textSlideUp 0.8s ease-out 0.7s forwards;
+      opacity: 0;
     }
   }
 

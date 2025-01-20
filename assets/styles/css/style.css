@@ -38,9 +38,9 @@ img {
 }
 
 .banner {
-  width: 100%;
+  width: 100vw;
   height: 150px;
-  background: url(/assets/img/flat-lay-unhealthy-delicious-food.jpg) no-repeat center/cover fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/flat-lay-unhealthy-delicious-food.jpg) no-repeat center/cover fixed;
   color: white;
   position: sticky;
   top: 0;
@@ -49,6 +49,34 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.banner h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding-bottom: 10px;
+}
+.banner h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: lightcoral;
+  border-radius: 2px;
+}
+@media screen and (min-width: 1000px) {
+  .banner h2 {
+    font-size: 3.5rem;
+  }
+  .banner h2::after {
+    width: 80px;
+  }
 }
 
 .view {
@@ -118,6 +146,26 @@ img {
     transform: translateY(0);
   }
 }
+@keyframes homeEnter {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes textSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .carousel-slide {
   will-change: transform, opacity;
 }
@@ -134,14 +182,63 @@ img {
     scroll-behavior: auto !important;
   }
 }
+@keyframes navSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes navSlideInDesktop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+@keyframes menuButtonEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 nav {
   position: fixed;
   z-index: 100;
   bottom: 0;
-  left: 0;
-  width: 100vw;
+  margin-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  border-radius: 25px;
   background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: navSlideIn 0.8s ease-out 1s forwards;
 }
 nav ul {
   display: flex;
@@ -233,6 +330,11 @@ nav a.men::before {
   border-radius: 50%;
   animation: pulseMenu 2s infinite;
 }
+@media screen and (min-width: 1000px) {
+  nav {
+    animation: navSlideInDesktop 0.8s ease-out 1s forwards;
+  }
+}
 
 @media screen and (min-width: 1000px) {
   nav {
@@ -310,6 +412,7 @@ nav a.men::before {
   justify-content: space-between;
   overflow: hidden;
   touch-action: none;
+  animation: homeEnter 1s ease-out forwards;
 }
 .homeView-text {
   position: relative;
@@ -330,14 +433,20 @@ nav a.men::before {
   margin: 20px 0;
   font-size: 3rem;
   font-weight: 600;
+  animation: textSlideUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
 }
 .homeView-text p {
   margin: 20px 0;
   font-size: 1.5rem;
   font-weight: 400;
+  animation: textSlideUp 0.8s ease-out 0.5s forwards;
+  opacity: 0;
 }
 .homeView-text .btn {
   margin-top: 20px;
+  animation: textSlideUp 0.8s ease-out 0.7s forwards;
+  opacity: 0;
 }
 .homeView-nav-space {
   height: 65px;
@@ -568,7 +677,37 @@ body:has(.view.Home.active) {
   align-items: flex-start;
   width: calc(100% - 40px);
   max-width: 600px;
-  animation: myAnim2 0.5s ease 0s 1 normal forwards;
+  opacity: 0;
+}
+.menu-item-text:nth-child(1) {
+  animation: cardEnter 0.6s ease-out 0.1s forwards;
+}
+.menu-item-text:nth-child(2) {
+  animation: cardEnter 0.6s ease-out 0.2s forwards;
+}
+.menu-item-text:nth-child(3) {
+  animation: cardEnter 0.6s ease-out 0.3s forwards;
+}
+.menu-item-text:nth-child(4) {
+  animation: cardEnter 0.6s ease-out 0.4s forwards;
+}
+.menu-item-text:nth-child(5) {
+  animation: cardEnter 0.6s ease-out 0.5s forwards;
+}
+.menu-item-text:nth-child(6) {
+  animation: cardEnter 0.6s ease-out 0.6s forwards;
+}
+.menu-item-text:nth-child(7) {
+  animation: cardEnter 0.6s ease-out 0.7s forwards;
+}
+.menu-item-text:nth-child(8) {
+  animation: cardEnter 0.6s ease-out 0.8s forwards;
+}
+.menu-item-text:nth-child(9) {
+  animation: cardEnter 0.6s ease-out 0.9s forwards;
+}
+.menu-item-text:nth-child(10) {
+  animation: cardEnter 0.6s ease-out 1s forwards;
 }
 .menu-item-text h3 {
   font-size: 1.8rem;
@@ -632,6 +771,20 @@ body:has(.view.Home.active) {
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.menu-btn:nth-child(1) {
+  animation: menuButtonEnter 0.5s ease-out forwards;
+}
+.menu-btn:nth-child(2) {
+  animation: menuButtonEnter 0.5s ease-out 0.2s forwards;
+}
+.menu-btn:nth-child(3) {
+  animation: menuButtonEnter 0.5s ease-out 0.4s forwards;
+}
+.menu-btn:nth-child(4) {
+  animation: menuButtonEnter 0.5s ease-out 0.6s forwards;
 }
 @media screen and (min-width: 1000px) {
   .menu-btn {
@@ -674,7 +827,7 @@ body:has(.view.Home.active) {
 
 .horaires-content {
   width: 90vw;
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 20px;
   background: white;
   border-radius: 8px;
@@ -706,7 +859,7 @@ body:has(.view.Home.active) {
 
 .location {
   width: 90vw;
-  margin: 30px auto;
+  margin: 50px auto;
   padding: 20px;
   background: white;
   border-radius: 8px;
