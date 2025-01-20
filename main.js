@@ -149,6 +149,59 @@ function initCarousel() {
     }
 }
 
+// Cache les sélecteurs DOM fréquemment utilisés
+const carouselContainer = document.querySelector('.carousel-container');
+const carouselDots = document.querySelector('.carousel-dots');
+const menuButtons = document.querySelectorAll('.menu-btn');
+
+// Utilise l'Intersection Observer pour le lazy loading des images
+const lazyLoadImages = () => {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+  });
+};
+
+// Délégation d'événements pour une meilleure performance
+document.addEventListener('click', (e) => {
+  const target = e.target;
+  
+  if (target.matches('.menu-btn')) {
+    handleMenuButtonClick(target);
+  } else if (target.matches('.carousel-btn')) {
+    handleCarouselNavigation(target);
+  }
+});
+
+// Debounce pour les événements fréquents
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+// Optimisation du scroll
+const optimizedScroll = debounce(() => {
+  // Code de gestion du scroll
+}, 16);
+
+window.addEventListener('scroll', optimizedScroll);
+
   
 
 

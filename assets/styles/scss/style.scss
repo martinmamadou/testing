@@ -72,3 +72,19 @@ li {
   }
 }
 
+// Utilisation de contain pour optimiser le rendu
+.menu-item-text {
+  contain: content;
+}
+
+// Prévention du layout shift
+.homeView {
+  contain: layout size;
+}
+
+// Optimisation des couches de rendu
+.carousel-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
