@@ -40,8 +40,6 @@ img {
 .banner {
   width: 100vw;
   height: 150px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/flat-lay-unhealthy-delicious-food.jpg) no-repeat center/cover fixed;
-  color: white;
   position: sticky;
   top: 0;
   z-index: 84;
@@ -49,6 +47,18 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/flat-lay-unhealthy-delicious-food.jpg) no-repeat center/cover fixed;
+  animation: bannerZoom 20s ease-in-out infinite alternate;
+  z-index: -1;
 }
 .banner h2 {
   font-size: 2.8rem;
@@ -58,6 +68,9 @@ img {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
   padding-bottom: 10px;
+  color: white;
+  z-index: 1;
+  animation: bannerTextReveal 0.8s ease-out forwards;
 }
 .banner h2::after {
   content: "";
@@ -65,17 +78,25 @@ img {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
   height: 3px;
   background: lightcoral;
   border-radius: 2px;
+  animation: bannerLineReveal 0.6s ease-out 0.8s forwards;
+  opacity: 0;
+  width: 0;
 }
 @media screen and (min-width: 1000px) {
   .banner h2 {
     font-size: 3.5rem;
   }
   .banner h2::after {
-    width: 80px;
+    animation: bannerLineReveal 0.6s ease-out 0.8s forwards;
+  }
+  @keyframes bannerLineReveal {
+    100% {
+      width: 80px;
+      opacity: 1;
+    }
   }
 }
 
@@ -84,7 +105,6 @@ img {
 }
 .view > div {
   max-width: 100vw;
-  margin: 0 auto;
   overflow-x: hidden;
 }
 
@@ -223,6 +243,47 @@ img {
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+@keyframes bannerZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes scheduleEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  70% {
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes bannerTextReveal {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transform: translateX(-20px);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateX(0);
+  }
+}
+@keyframes bannerLineReveal {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 60px;
+    opacity: 1;
   }
 }
 nav {
@@ -656,7 +717,7 @@ body:has(.view.Home.active) {
 @media screen and (min-width: 1000px) {
   .menu-item.active {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1400px;
@@ -677,7 +738,55 @@ body:has(.view.Home.active) {
   align-items: flex-start;
   width: calc(100% - 40px);
   max-width: 600px;
+  min-width: 300px;
   opacity: 0;
+  position: relative;
+}
+@media screen and (min-width: 1000px) {
+  .menu-item-text {
+    margin: 10px;
+    min-height: 250px;
+  }
+}
+.menu-item.Burger .menu-item-text:first-child {
+  width: 85vw;
+  max-width: 85vw;
+  margin: 40px auto;
+  transform-origin: center;
+  padding: 30px;
+}
+.menu-item.Burger .menu-item-text:first-child .promo-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: lightcoral;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-item.Burger .menu-item-text:first-child .promo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (min-width: 1000px) {
+  .menu-item.Burger .menu-item-text:first-child {
+    width: calc(100% - 40px);
+    max-width: 600px;
+    margin: 20px;
+    padding: 20px;
+  }
+  .menu-item.Burger .menu-item-text:first-child .promo-badge {
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    right: 8px;
+  }
 }
 .menu-item-text:nth-child(1) {
   animation: cardEnter 0.6s ease-out 0.1s forwards;
@@ -775,16 +884,21 @@ body:has(.view.Home.active) {
   transform: translateY(-20px);
 }
 .menu-btn:nth-child(1) {
-  animation: menuButtonEnter 0.5s ease-out forwards;
+  animation: menuButtonEnter 0.5s ease-out 0.5s forwards;
+  background: lightcoral;
+  color: white;
+}
+.menu-btn:nth-child(1) i {
+  animation: bounce 0.5s ease;
 }
 .menu-btn:nth-child(2) {
-  animation: menuButtonEnter 0.5s ease-out 0.2s forwards;
+  animation: menuButtonEnter 0.5s ease-out 0.7s forwards;
 }
 .menu-btn:nth-child(3) {
-  animation: menuButtonEnter 0.5s ease-out 0.4s forwards;
+  animation: menuButtonEnter 0.5s ease-out 0.9s forwards;
 }
 .menu-btn:nth-child(4) {
-  animation: menuButtonEnter 0.5s ease-out 0.6s forwards;
+  animation: menuButtonEnter 0.5s ease-out 1.1s forwards;
 }
 @media screen and (min-width: 1000px) {
   .menu-btn {
@@ -832,6 +946,8 @@ body:has(.view.Home.active) {
   background: white;
   border-radius: 8px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
+  opacity: 0;
+  animation: scheduleEnter 0.6s ease-out 0.2s forwards;
 }
 
 .horaires-grid {
@@ -845,6 +961,16 @@ body:has(.view.Home.active) {
   background: rgba(32, 178, 170, 0.1);
   border-radius: 8px;
   text-align: center;
+  opacity: 0;
+}
+.jour:nth-child(1) {
+  animation: scheduleEnter 0.6s ease-out 0.6s forwards;
+}
+.jour:nth-child(2) {
+  animation: scheduleEnter 0.6s ease-out 0.8s forwards;
+}
+.jour:nth-child(3) {
+  animation: scheduleEnter 0.6s ease-out 1s forwards;
 }
 .jour h4 {
   color: lightseagreen;
@@ -865,6 +991,8 @@ body:has(.view.Home.active) {
   border-radius: 8px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
   text-align: center;
+  opacity: 0;
+  animation: scheduleEnter 0.6s ease-out 1.2s forwards;
 }
 .location h3 {
   color: lightseagreen;
