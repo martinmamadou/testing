@@ -25,19 +25,20 @@
 
   // Conteneur du texte d'accueil
   &-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    margin-bottom: 80px; // Espace pour la navigation
     position: relative;
     z-index: 1;
-    padding: 0 20px;
     color: $white;
     font-size: 2rem;
     font-weight: 600;
     text-align: left;
     overflow: hidden;
     touch-action: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
 
     // Titre principal avec animation
     h1 {
@@ -71,11 +72,15 @@
 
   // Espace réservé pour la navigation
   &-nav-space {
-    height: 55px;
+    height: 80px; // Hauteur fixe pour la navigation
     width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
     
     @media screen and (min-width: $desktop) {
-      display: none;
+      height: 100px; // Plus grand sur desktop
     }
   }
 }
