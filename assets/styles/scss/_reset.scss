@@ -1,10 +1,14 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -14,6 +18,7 @@ body {
 
 a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
   color: inherit;
 }
 
@@ -24,6 +29,9 @@ ul, li {
 }
 
 button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: none;
   background: none;
   cursor: pointer;
@@ -53,4 +61,10 @@ img {
 
 main {
   min-height: 100vh;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

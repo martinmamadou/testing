@@ -1,0 +1,32 @@
+.contact-form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+
+  input, textarea {
+    -webkit-transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease;
+  }
+
+  button {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.contact-content h3 {
+  color: $primary-color;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  text-align: center;
+} 

@@ -12,22 +12,42 @@
 .homeView {
   height: 100vh;
   height: 100dvh;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
               url(/assets/img/frais-savoureux-hamburger.webp) no-repeat center/cover;
   position: relative;
   z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
   overflow: hidden;
+  -webkit-touch-action: none;
   touch-action: none;
+  -webkit-animation: homeEnter 1s ease-out forwards;
   animation: homeEnter 1s ease-out forwards;
 
   // Conteneur du texte d'accueil
   &-text {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
     flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
     padding: 0 20px;
     margin-bottom: 80px; // Espace pour la navigation
@@ -43,13 +63,13 @@
     // Titre principal avec animation
     h1 {
       margin: 20px 0;
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 600;
       animation: textSlideUp 0.8s ease-out 0.3s forwards;
       opacity: 0;
 
       @media screen and (min-width: $desktop) {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
       }
     }
 
@@ -74,6 +94,7 @@
   &-nav-space {
     height: 80px; // Hauteur fixe pour la navigation
     width: 100%;
+    background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.8));
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     position: absolute;
     bottom: 0;
@@ -82,6 +103,32 @@
     @media screen and (min-width: $desktop) {
       height: 100px; // Plus grand sur desktop
     }
+  }
+}
+
+@-webkit-keyframes homeEnter {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes homeEnter {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
@@ -165,7 +212,7 @@
 
   // Titre de l'offre
   h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: $primary-color;
   }
 

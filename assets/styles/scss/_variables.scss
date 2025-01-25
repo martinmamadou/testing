@@ -7,17 +7,63 @@ $white: white;
 $black: black;
 
 // Fonds semi-transparents
-$glass-bg: rgba(255, 255, 255, 0.95);
+$glass-bg: -webkit-linear-gradient(
+  rgba(255, 255, 255, 0.9),
+  rgba(255, 255, 255, 0.8)
+);
+$glass-bg: linear-gradient(
+  rgba(255, 255, 255, 0.9),
+  rgba(255, 255, 255, 0.8)
+);
+
 $overlay-bg: rgba(0, 0, 0, 0.5);
 $hover-bg: rgba(32, 178, 170, 0.1);
 
 // Effets d'ombre
-$card-shadow: rgba(17, 12, 46, 0.15) 0px 4px 10px;
-$nav-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+$nav-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 
 // Dimensions standards
 $nav-height: 100vh;
 $banner-height: 150px;
 
 // Points de rupture responsive
-$desktop: 1000px; 
+$desktop: 1000px;
+
+// Mixins pour les préfixes webkit communs
+@mixin flex-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin transition($property) {
+  -webkit-transition: $property;
+  transition: $property;
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  transform: $transform;
+}
+
+@mixin backdrop-filter($filter) {
+  -webkit-backdrop-filter: $filter;
+  backdrop-filter: $filter;
+} 

@@ -208,6 +208,19 @@ const optimizedScroll = debounce(() => {
 
 window.addEventListener('scroll', optimizedScroll);
 
+// Vérifier si le défilement est nécessaire
+function checkScrollIndicator() {
+  const scrollContainer = document.querySelector('.menu-btn-scroll');
+  if (scrollContainer) {
+    const isScrollable = scrollContainer.scrollWidth > scrollContainer.clientWidth;
+    scrollContainer.classList.toggle('no-scroll', !isScrollable);
+  }
+}
+
+// Exécuter au chargement et au redimensionnement
+window.addEventListener('load', checkScrollIndicator);
+window.addEventListener('resize', checkScrollIndicator);
+
   
 
 
