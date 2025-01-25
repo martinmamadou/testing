@@ -61,6 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetSection) {
                 targetSection.classList.add('active');
             }
+
+            // Scroll vers le haut de la page menu
+            document.querySelector('.menu-content').scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     });
 });
