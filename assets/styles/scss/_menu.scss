@@ -94,7 +94,7 @@
 
     // Titre du plat
     h3 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: $text-color;
       font-family: 'Playfair Display', serif;
@@ -256,12 +256,12 @@
 // Style des titres de section
 .view h2,
 .menu-content h2 {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 25px 0;
+  padding: 20px 0;
   margin: 0;
   color: $white;
   text-align: center;
@@ -280,7 +280,7 @@
   gap: 15px;
 
   i {
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: $secondary-color;
   }
 
@@ -297,46 +297,25 @@
   }
 
   @media screen and (min-width: $desktop) {
-    font-size: 3.2rem;
-    padding: 30px 0;
+    font-size: 2.6rem;
+    padding: 25px 0;
     gap: 20px;
 
     i {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
     }
   }
 }
 
-// Bouton retour vers Home (mobile uniquement)
-.back-to-home {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 90;
-  color: $white;
-  font-size: 1.8rem;
-  padding: 10px;
-  display: none;
-  animation: fadeIn 0.3s ease;
-  
-  i {
-    transition: transform 0.3s ease;
-  }
+// Titre des plats
+.card-header h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $text-color;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
 
-  &:hover i {
-    transform: translateX(-5px);
-  }
-
-  @media screen and (max-width: $desktop - 1) {
-    display: block;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  @media screen and (min-width: $desktop) {
+    font-size: 1.8rem;
   }
 } 

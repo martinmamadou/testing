@@ -42,10 +42,14 @@
     // Titre principal avec animation
     h1 {
       margin: 20px 0;
-      font-size: 3rem;
+      font-size: 2.4rem;
       font-weight: 600;
       animation: textSlideUp 0.8s ease-out 0.3s forwards;
       opacity: 0;
+
+      @media screen and (min-width: $desktop) {
+        font-size: 2.8rem;
+      }
     }
 
     // Sous-titre avec animation
@@ -156,7 +160,7 @@
 
   // Titre de l'offre
   h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: $primary-color;
   }
 
@@ -247,18 +251,74 @@ body:has(.view.Home.active) {
   height: 100%;
 }
 
-// Conteneur des réseaux sociaux
-.social-links {
+// Barre supérieure contenant logo et réseaux sociaux
+.top-bar {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 90;
+
+  @media screen and (min-width: $desktop) {
+    top: 30px;
+    padding: 0 30px;
+  }
+}
+
+// Logo à gauche
+.home-logo {
+  a {
+    color: $white;
+    font-size: 1.6rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: logoSlideIn 0.5s ease backwards;
+
+    i {
+      font-size: 1.8rem;
+    }
+
+    span {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    
+    &:hover {
+      color: $secondary-color;
+      transform: translateY(-3px);
+    }
+
+    @media screen and (min-width: $desktop) {
+      font-size: 2rem;
+
+      i {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}
+
+// Réseaux sociaux à droite
+.social-links {
   display: flex;
   gap: 15px;
-  z-index: 90;
+  height: 100%;
+  align-items: center;
 
   a {
     color: $white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s ease, color 0.3s ease;
     animation: socialIconDrop 0.5s ease backwards;
     
@@ -267,21 +327,12 @@ body:has(.view.Home.active) {
       transform: translateY(-3px);
     }
 
-    // Délai progressif pour chaque icône
-    &:nth-child(1) {
-      animation-delay: 0.3s;
-    }
-    &:nth-child(2) {
-      animation-delay: 0.5s;
-    }
-    &:nth-child(3) {
-      animation-delay: 0.7s;
-    }
+    &:nth-child(1) { animation-delay: 0.3s; }
+    &:nth-child(2) { animation-delay: 0.5s; }
+    &:nth-child(3) { animation-delay: 0.7s; }
   }
 
   @media screen and (min-width: $desktop) {
-    top: 30px;
-    right: 30px;
     gap: 20px;
 
     a {
@@ -299,51 +350,6 @@ body:has(.view.Home.active) {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-// Logo à gauche
-.home-logo {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 90;
-  animation: logoSlideIn 0.5s ease backwards;
-
-  a {
-    color: $white;
-    font-size: 2rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    i {
-      font-size: 2.2rem;
-    }
-
-    span {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-    }
-    
-    &:hover {
-      color: $secondary-color;
-      transform: translateY(-3px);
-    }
-  }
-
-  @media screen and (min-width: $desktop) {
-    top: 30px;
-    left: 30px;
-
-    a {
-      font-size: 2.4rem;
-
-      i {
-        font-size: 2.6rem;
-      }
-    }
   }
 }
 
