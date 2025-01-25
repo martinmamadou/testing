@@ -7,6 +7,7 @@ footer {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 90;
+ 
 }
 
 .footer-content {
@@ -20,7 +21,8 @@ footer {
   -webkit-box-align: center;
   -webkit-align-items: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0 40px;
+
   gap: 10px;
 
   p {
@@ -57,14 +59,19 @@ main {
 
 .main-footer {
   background: linear-gradient(
-    to right,
+    145deg,
     rgba(32, 178, 170, 0.97),
     rgba(32, 178, 170, 0.93)
   );
-  padding: 30px 20px;
+  padding: 40px 20px calc(80px + 40px);
   color: white;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   z-index: 90;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
 
   .footer-content {
     max-width: 1200px;
@@ -128,5 +135,9 @@ main {
     .credits {
       font-style: italic;
     }
+  }
+
+  &.show {
+    transform: translateY(0);
   }
 }

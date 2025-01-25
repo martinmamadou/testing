@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // ... autres initialisations ...
+    handleFooterIndicator();
 });
 
 // Gestion du menu de restauration
@@ -220,6 +223,28 @@ function checkScrollIndicator() {
 // Exécuter au chargement et au redimensionnement
 window.addEventListener('load', checkScrollIndicator);
 window.addEventListener('resize', checkScrollIndicator);
+
+// Simplification de la gestion du footer
+function toggleFooter(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  
+  const footer = document.querySelector('.main-footer');
+  footer.classList.toggle('show');
+}
+
+// Fonction pour scroller jusqu'au footer
+function scrollToFooter() {
+  const footer = document.querySelector('.main-footer');
+  const windowHeight = window.innerHeight;
+  const footerTop = footer.getBoundingClientRect().top;
+  const scrollDistance = footerTop + window.scrollY - (windowHeight / 2);
+
+  window.scrollTo({
+    top: scrollDistance,
+    behavior: 'smooth'
+  });
+}
 
   
 

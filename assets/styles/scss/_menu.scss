@@ -54,7 +54,8 @@
 
 // Conteneur des éléments du menu
 .menu-items {
-  padding: 20px 0;
+  min-height: 100px;
+  padding: 20px 0 40px;
   margin-bottom: 80px;
 }
 
@@ -390,7 +391,7 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 15px 0;
+  padding: 40px 0 20px;
   margin: 0;
   color: $white;
   text-align: center;
@@ -427,7 +428,7 @@
 
   @media screen and (min-width: $desktop) {
     font-size: 2rem;
-    padding: 20px 0;
+    padding: 40px 0 20px;
     gap: 15px;
 
     i {
