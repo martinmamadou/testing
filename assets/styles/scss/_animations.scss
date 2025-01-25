@@ -191,4 +191,46 @@
     width: 60px;
     opacity: 1;
   }
+}
+
+// Animation d'entrée pour les titres
+@keyframes titleSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleLineExpand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 80px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 60px;
+    opacity: 1;
+  }
+}
+
+@keyframes titleLetterSpacing {
+  0% {
+    letter-spacing: -5px;
+    opacity: 0;
+  }
+  50% {
+    letter-spacing: 5px;
+    opacity: 0.5;
+  }
+  100% {
+    letter-spacing: 2px;
+    opacity: 1;
+  }
 } 

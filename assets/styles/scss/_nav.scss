@@ -3,13 +3,13 @@ nav {
   position: fixed; // Fixe en bas sur mobile
   z-index: 100;   // Toujours au-dessus des autres éléments
   bottom: 0;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   width: 95vw;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  background: $glass-bg;
+  box-shadow: $nav-shadow;
   backdrop-filter: blur(10px); // Effet de flou derrière la nav
   opacity: 0; // Commence invisible
   animation: navSlideIn 0.8s ease-out 1s forwards; // Animation après 1s
@@ -20,15 +20,15 @@ nav {
     justify-content: space-around;
     align-items: center;
     margin: 0;
-    padding: 15px 0;
-    font-size: 1.1rem;
+    padding: 10px 0;
+    font-size: 1rem;
   }
 
   // Éléments de navigation individuels
   li {
     position: relative;
-    padding: 8px 20px;
-    border-radius: 25px;
+    padding: 6px 15px;
+    border-radius: 20px;
     transition: all 0.3s ease;
 
     // Effet hover
@@ -43,7 +43,7 @@ nav {
       bottom: 0;
       left: 50%;
       width: 0;
-      height: 3px;
+      height: 2px;
       background: lightseagreen;
       transform: translateX(-50%);
       transition: width 0.3s ease;
@@ -53,7 +53,7 @@ nav {
     // Animation de la barre au hover et état actif
     &:hover::before,
     &.active::before {
-      width: 30px;
+      width: 25px;
     }
 
     // Style de l'élément actif
@@ -86,22 +86,22 @@ nav {
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
-    padding: 8px 0;
+    padding: 6px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
 
     // Style des icônes
     i {
       color: $black;
-      font-size: 1rem;
-      margin-bottom: 2px;
+      font-size: 1.1rem;
+      margin-bottom: 1px;
     }
 
     // Style du texte sous les icônes
     span {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     // Style spécial pour le bouton menu
@@ -111,7 +111,7 @@ nav {
       position: relative;
 
       i {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: lightseagreen;
         filter: drop-shadow(0 0 8px rgba(32, 178, 170, 0.3));
       }
@@ -120,11 +120,11 @@ nav {
       &::before {
         content: '';
         position: absolute;
-        top: -8px;
+        top: -6px;
         left: 50%;
         transform: translateX(-50%);
-        width: 6px;
-        height: 6px;
+        width: 5px;
+        height: 5px;
         background: lightseagreen;
         border-radius: 50%;
         animation: pulseMenu 2s infinite;
@@ -206,5 +206,49 @@ nav {
     color: $secondary-color;
     font-size: 1.3rem;
     margin-bottom: 2px;
+  }
+}
+
+.logo {
+  z-index: 90;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 0;
+  visibility: hidden; // Caché par défaut
+  
+  // Visible uniquement quand Home est active
+  .view.Home.active ~ header & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: $white;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 2.5rem;
+      color: $secondary-color;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      i {
+        transform: rotate(-10deg);
+      }
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    left: 40px;
+
+    a i {
+      font-size: 3rem;
+    }
   }
 } 
