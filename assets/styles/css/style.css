@@ -563,22 +563,17 @@ nav {
   animation: navSlideIn 0.8s ease-out 1s forwards;
 }
 nav ul {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
   justify-content: center;
   gap: 15px;
   margin: 0;
-  padding: 15px 0;
+  padding: 13px 0;
   width: 100%;
   align-items: center;
-  -webkit-align-items: center;
 }
 nav li {
   position: relative;
-  padding: 6px 15px;
+  padding: 6px 13px;
   border-radius: 20px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -616,13 +611,13 @@ nav a {
   transition: all 0.3s ease;
 }
 nav a i {
-  font-size: 1.3rem;
-  margin-bottom: 2px;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 nav a span {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 @media screen and (min-width: 1000px) {
   nav {
@@ -646,6 +641,13 @@ nav a span {
   }
   nav li {
     margin: 10px 0;
+  }
+  nav a i, nav .info-btn i, nav .phone-link i {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+  }
+  nav a span, nav .info-btn span, nav .phone-link span {
+    font-size: 0.8rem;
   }
 }
 
@@ -710,13 +712,13 @@ a, .phone-link {
   cursor: pointer;
 }
 a i, .phone-link i {
-  font-size: 1.3rem;
-  margin-bottom: 2px;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 a span, .phone-link span {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .logo {
@@ -846,27 +848,33 @@ a span, .phone-link span {
 }
 .homeView-text h1 {
   margin: 20px 0;
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 600;
   animation: textSlideUp 0.8s ease-out 0.3s forwards;
   opacity: 0;
 }
 @media screen and (min-width: 1000px) {
   .homeView-text h1 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
 }
 .homeView-text p {
   margin: 20px 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
   animation: textSlideUp 0.8s ease-out 0.5s forwards;
   opacity: 0;
 }
 .homeView-text .btn {
   margin-top: 20px;
+  width: 85%;
   animation: textSlideUp 0.8s ease-out 0.7s forwards;
   opacity: 0;
+}
+@media screen and (min-width: 1000px) {
+  .homeView-text .btn {
+    width: 50%;
+  }
 }
 .homeView-nav-space {
   height: 80px;
@@ -1524,7 +1532,7 @@ body:has(.view.Home.active) {
 }
 .view h2,
 .menu-content h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -1551,22 +1559,10 @@ body:has(.view.Home.active) {
   font-size: 1.6rem;
   color: lightcoral;
 }
-.view h2::after,
-.menu-content h2::after {
-  content: "";
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: lightcoral;
-  border-radius: 2px;
-}
 @media screen and (min-width: 1000px) {
   .view h2,
   .menu-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     padding: 40px 0 20px;
     gap: 15px;
   }
@@ -1619,7 +1615,7 @@ body:has(.view.Home.active) {
   }
 }
 .card-header h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #333;
   font-family: "Playfair Display", serif;
@@ -1627,7 +1623,7 @@ body:has(.view.Home.active) {
 }
 @media screen and (min-width: 1000px) {
   .card-header h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -1687,7 +1683,7 @@ body:has(.view.Home.active) {
 .horaires-content h3 {
   color: lightseagreen;
   font-size: 1.3rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-align: center;
 }
 @media screen and (min-width: 1000px) {
@@ -1731,12 +1727,12 @@ body:has(.view.Home.active) {
 .jour h4 {
   color: lightseagreen;
   font-size: 1.1rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 600;
 }
 .jour p {
   color: #333;
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin: 8px 0;
 }
 @media screen and (min-width: 1000px) {
@@ -1763,7 +1759,7 @@ body:has(.view.Home.active) {
 }
 .location h3 {
   color: lightseagreen;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 25px;
   text-align: center;
 }
@@ -1776,7 +1772,7 @@ body:has(.view.Home.active) {
 }
 .location p {
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 20px;
   font-weight: 500;
   text-align: center;

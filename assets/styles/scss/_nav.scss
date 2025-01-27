@@ -19,24 +19,19 @@ nav {
 
   // Liste des éléments de navigation
   ul {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
     gap: 15px;
     margin: 0;
-    padding: 15px 0;
+    padding: 13px 0;
     width: 100%;
     align-items: center;
-    -webkit-align-items: center;
   }
 
   // Éléments de navigation individuels
   li {
     position: relative;
-    padding: 6px 15px;
+    padding: 6px 13px;
     border-radius: 20px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -80,14 +75,14 @@ nav {
     transition: all 0.3s ease;
 
     i {
-      font-size: 1.3rem;
-      margin-bottom: 2px;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
     }
 
     span {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
   }
 
@@ -113,6 +108,17 @@ nav {
 
     li {
       margin: 10px 0;
+    }
+
+    a, .info-btn, .phone-link {
+      i {
+        font-size: 1.3rem;
+        margin-bottom: 2px;
+      }
+
+      span {
+        font-size: 0.8rem;
+      }
     }
   }
 }
@@ -193,14 +199,14 @@ a, .phone-link {
   cursor: pointer;
 
   i {
-    font-size: 1.3rem;
-    margin-bottom: 2px;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
   }
 
   span {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
