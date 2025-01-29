@@ -74,6 +74,13 @@ nav {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 
+    // Animation spéciale pour le menu
+    &.men {
+      i {
+        animation: menuIconPulse 2s ease-in-out infinite;
+      }
+    }
+
     i {
       font-size: 1.1rem;
       margin-bottom: 4px;
