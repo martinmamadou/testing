@@ -1,11 +1,6 @@
 export function initUrlManager() {
-    // Gérer l'URL immédiatement si le DOM est déjà chargé
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        handleInitialUrl();
-    } else {
-        // Sinon attendre le chargement du DOM
-        document.addEventListener('DOMContentLoaded', handleInitialUrl);
-    }
+    // Gérer l'URL initiale au chargement
+    handleInitialUrl();
 
     // Écouter les changements d'URL
     window.addEventListener('popstate', handleInitialUrl);
@@ -21,9 +16,7 @@ function handleInitialUrl() {
     let targetView = 'Home';
 
     if (path !== '/') {
-        // Nettoyer le chemin (enlever les / et tout ce qui suit un ?)
-        targetView = path.split('/').filter(Boolean)[0] || 'home';
-        targetView = targetView.split('?')[0];
+        targetView = path.substring(1); // Enlève le / initial
         targetView = targetView.charAt(0).toUpperCase() + targetView.slice(1).toLowerCase();
     }
 
@@ -31,13 +24,6 @@ function handleInitialUrl() {
     const views = document.querySelectorAll('.view');
     const navItems = document.querySelectorAll('nav li');
     const menuSection = document.querySelector('.menu');
-
-    // S'assurer que tous les éléments sont présents
-    if (!views.length || !navItems.length || !menuSection) {
-        console.warn('Elements not found, retrying in 100ms');
-        setTimeout(handleInitialUrl, 100);
-        return;
-    }
 
     views.forEach(view => view.classList.remove('active'));
     menuSection.classList.remove('show');
@@ -59,9 +45,6 @@ function handleInitialUrl() {
                     nav.classList.add('active');
                 }
             });
-        } else {
-            // Si la vue n'existe pas, rediriger vers la home
-            window.location.pathname = '/';
         }
     }
 } 
