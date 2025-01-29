@@ -246,6 +246,20 @@ function scrollToFooter() {
   });
 }
 
+// Gestion du padding de la barre de catégories au scroll
+document.addEventListener('DOMContentLoaded', function() {
+  const menuContent = document.querySelector('.menu-content');
+  const menuBtnContainer = document.querySelector('.menu-btn-container');
+
+  menuContent.addEventListener('scroll', function() {
+    if (this.scrollTop > 100) {
+      menuBtnContainer.classList.add('scrolled');
+    } else {
+      menuBtnContainer.classList.remove('scrolled');
+    }
+  });
+});
+
   
 
 
